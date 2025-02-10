@@ -2,9 +2,9 @@ import '../../styles/auth_login.scss'
 
 export default function login(){
     return(
-        <div className="loginbackgroud">
+        <div className="login_page">
             <h1>Login to *proj*</h1>
-            <div className="lofinField">
+            <div className="loginField">
                 <div className='inputField'>
                     <p>Username</p>
                     <input type="text" />

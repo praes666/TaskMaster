@@ -1,0 +1,65 @@
+@use './index.scss' as *;
+
+header{
+  a{
+    img{
+      width: 40px;
+      height: 40px;
+    }
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    text-decoration: none;
+    color: var(--third-color);
+  }
+
+  .middle{
+    display: flex;
+    gap: 25px;
+  }
+
+  h3{
+    font-weight: normal;
+    color: var(--third-color);
+  }
+
+  .login{
+    svg{
+      width: 25px;
+      height: 100%;
+    }
+    border: 1px solid var(--third-color);
+    background-color: var(--second-color);
+    border-radius: 7px;
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    height: 55%;
+    padding: 0 7px;
+    cursor: pointer;
+  }
+
+  .right{
+    div{
+      display: flex;
+      align-items: center;
+    }
+    .theme-switch{
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 7px;
+  }
+
+  height: 55px;
+  background-color: var(--first-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--third-color);
+}

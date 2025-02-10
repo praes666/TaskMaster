@@ -1,10 +1,38 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom'
+
+import Page404 from "./components/pages/page404.tsx";
+import Login from './components/pages/login.tsx'
+
+import Header from "./components/components/header.tsx";
+import About from "./components/pages/about.tsx";
+import Todo from "./components/pages/todo.tsx";
+import Kanban from "./components/pages/kanban.tsx";
+
 import './styles/index.scss'
-import Login from './components/auth/login'
+
+const Layout = () => {
+    return (
+        <div>
+            <Header/>
+            <Outlet/>
+        </div>
+    )
+}
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <Login/>
-  </StrictMode>,
+    <Router>
+        <StrictMode>
+            <Routes>
+                <Route element={<Layout/>}>
+                    <Route path='/about' element={<About/>}/>
+                    <Route path='/todo' element={<Todo/>}/>
+                    <Route path='/kanban' element={<Kanban/>}/>
+                </Route>
+                <Route path='/login' element={<Login/>}/>
+                <Route path='*' element={<Page404/>}/>
+            </Routes>
+        </StrictMode>
+    </Router>
 )
