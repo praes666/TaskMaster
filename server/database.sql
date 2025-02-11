@@ -17,7 +17,7 @@ CREATE TABLE "eisenhower_item" (
     is_important BOOLEAN NOT NULL,
     is_urgent BOOLEAN NOT NULL,
     is_completed BOOLEAN DEFAULT FALSE,
-    user_id INTEGER NOT NULL REFERENCES "person" (id) ON DELETE CASCADE,
+    person_id INTEGER NOT NULL REFERENCES "person" (id) ON DELETE CASCADE,
     priority_level INTEGER GENERATED ALWAYS AS (
         CASE
             WHEN is_important AND is_urgent THEN 1
