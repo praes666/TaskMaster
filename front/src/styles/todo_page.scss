@@ -1,0 +1,15 @@
+@use './index.scss' as *;
+
+.todo_page{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.new_task{
+
+}
+
+.todo_states{
+  border: 1px solid var(--third-color);
+}
