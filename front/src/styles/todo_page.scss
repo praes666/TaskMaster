@@ -2,14 +2,166 @@
 
 .todo_page{
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
-  align-items: center;
+  padding: 25px;
+  justify-content: space-between;
+  @media (width < 1190px) {
+    justify-content: center;
+  }
 }
 
 .new_task{
+  .titles{
+    .task_title{
+      textarea, input{
+        width: calc(100% - 7px*2);
+        padding: 0 7px;
+        height: 25px;
+        border: 1px solid var(--third-color);
+        border-radius: 5px;
+        background-color: var(--first-color);
+        color: var(--third-color);
+        resize: none;
+        font-size: 17px;
+      }
+    }
 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  .switchers{
+    div{
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+    display: flex;
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
+  .add_task{
+    cursor: pointer;
+    background: var(--second-color);
+    border-radius: 7px;
+    width: 80%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input[type='checkbox']{
+    -webkit-appearance: none;
+    background: var(--second-color);
+    border-radius: 20px;
+    width: 70px;
+    aspect-ratio: 2/1;
+    transition: background 0.3s;
+  }:checked[type='checkbox']{
+     background: var(--green);
+   }
+  input[type='checkbox']:before{
+    content: "";
+    width: 35px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: absolute;
+    background: #ffffff;
+    transition: 0.3s;
+  }
+  input:checked[type='checkbox']:before{
+    margin-left: 35px;
+  }
+
+  p, h1, h2, h3{
+    color: var(--third-color);
+  }
+
+  width: 300px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 7px;
+  align-items: center;
+  border: 1px solid var(--third-color);
+  margin-bottom: 25px;
+  position: sticky;
+  top: $header-height + 25px;
 }
 
-.todo_states{
-  border: 1px solid var(--third-color);
+.todo_tasks{
+  .todo_task{
+    width: calc(100% - 10px*2 - 15px);
+    min-height: calc(160px - 10px*2);
+    background-color: var(--second-color);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  height: fit-content;
+  gap: 10px;
+}
+
+.eis_task{
+  h3, h4{
+    color: var(--third-color);
+    max-width: 50%;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  h4{
+  min-width: 11%;
+  }
+  p{
+    max-width: 40%;
+    color: var(--third-color);
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  width: calc(100% - 15px*2);
+  height: 40px;
+  background-color: var(--first-color);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  text-wrap: nowrap;
+  gap: 10px;
+}
+
+.eis_div{
+
+  div{
+    width: 49%;
+    height: 49%;
+    border-radius: 7px;
+  }
+
+  justify-content: center;
+  width: 600px;
+  aspect-ratio: 1/1;
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  position: sticky;
+  top: $header-height + 25px;
 }

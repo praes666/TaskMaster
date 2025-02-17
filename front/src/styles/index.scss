@@ -1,29 +1,72 @@
 [data-theme="light"] {
-    --first-color: #fff;
-    --second-color: #e4e4e4;
-    --third-color: #555555;
-    --green: #6fdd6f;
+    /* Основные цвета */
+    --first-color: #F5F5F5; /* Основной фон */
+    --second-color: #c8c8c8; /* Дополнительный фон (контейнеры, кнопки) */
+    --third-color: #424242; /* Текст и рамки */
+
+    /* Цвета для кнопок */
+    --green: #66BB6A; /* Зеленый */
+    --green-hover: #81C784; /* Зеленый (при наведении) */
+    --green-active: #4CAF50; /* Зеленый (активный) */
+
+    --orange: #FFA726; /* Оранжевый */
+    --orange-hover: #FFB74D; /* Оранжевый (при наведении) */
+    --orange-active: #FB8C00; /* Оранжевый (активный) */
+
+    --yellow: #FFEE58; /* Желтый */
+    --yellow-hover: #FFF176; /* Желтый (при наведении) */
+    --yellow-active: #FDD835; /* Желтый (активный) */
+
+    --red: #EF5350; /* Красный */
+    --red-hover: #E57373; /* Красный (при наведении) */
+    --red-active: #D32F2F; /* Красный (активный) */
 }
 
 [data-theme="dark"] {
-    --first-color: #282828;
-    --second-color: #202020;
-    --third-color: #bbb;
-    --green: #238636;
+    /* Основные цвета */
+    --first-color: #1e1e1e; /* Основной фон */
+    --second-color: #464646; /* Дополнительный фон (контейнеры, кнопки) */
+    --third-color: #E0E0E0; /* Текст и рамки */
+
+    /* Цвета для кнопок */
+    --green: #238636; /* Зеленый */
+    --green-hover: #2E8B57; /* Зеленый (при наведении) */
+    --green-active: #1C6B2F; /* Зеленый (активный) */
+
+    --orange: #FF8C42; /* Оранжевый (немного темнее для темной темы) */
+    --orange-hover: #FFA64D; /* Оранжевый (при наведении) */
+    --orange-active: #E67E00; /* Оранжевый (активный) */
+
+    --yellow: #FFD54F; /* Желтый (немного темнее для темной темы) */
+    --yellow-hover: #FFE082; /* Желтый (при наведении) */
+    --yellow-active: #FBC02D; /* Желтый (активный) */
+
+    --red: #D32F2F; /* Красный */
+    --red-hover: #E57373; /* Красный (при наведении) */
+    --red-active: #B71C1C; /* Красный (активный) */
 }
+
+$header-height: 55px;
 
 *{
     margin: 0;
     padding: 0;
     font-family: "Montserrat", serif;
+    transition: color, background-color, background 0.5s;
 }
-h1, h2, h3{
+h1, h2, h3, h4{
     font-weight: normal;
+    width: fit-content;
 }
-html, body, .root{
-    width: 100%;
+
+html, body, .root, .app{
     height: 100%;
 }
+
 body{
     background-color: var(--first-color);
+}
+html{
+    overflow-y: scroll;
+    scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0);
 }

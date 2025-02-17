@@ -2,7 +2,7 @@ import '../../styles/auth_page.scss'
 import ThemeButton from "../components/theme_button.tsx";
 import {useState} from "react";
 
-export default function Login(){
+export default function Auth(){
     const [loginView, setLoginView] = useState<boolean>(true);
 
     return(
@@ -14,14 +14,14 @@ export default function Login(){
                         <div className="loginField">
                             <div className='inputField'>
                                 <p>Username</p>
-                                <input type="text" />
+                                <input type="text" name='name' />
                             </div>
                             <div className='inputField'>
                                 <div>
                                     <p>Password</p>
                                     <a href=""><p>Forgot?</p></a>
                                 </div>
-                                <input type="text" />
+                                <input type="text" name='password' />
                             </div>
                             <div className='regButton'>
                                 <p>Log in</p>
@@ -36,23 +36,23 @@ export default function Login(){
                         <div className="loginField">
                             <div className='inputField'>
                                 <p>Username</p>
-                                <input type="text" />
+                                <input type="text" name='name' />
                             </div>
                             <div className='inputField'>
                                 <p>E-mail</p>
-                                <input type="text" />
+                                <input type="text" name='email' />
                             </div>
                             <div className='inputField'>
                                 <div>
                                     <p>Password</p>
                                 </div>
-                                <input type="text" />
+                                <input type="text" name='password' />
                             </div>
                             <div className='inputField'>
                                 <div>
                                     <p>Repeat password</p>
                                 </div>
-                                <input type="text" />
+                                <input type="text" name='password' />
                             </div>
                             <div className='regButton'>
                                 <p>Sign in</p>

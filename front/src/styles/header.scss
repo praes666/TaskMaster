@@ -1,21 +1,16 @@
 @use './index.scss' as *;
 
 header{
-  a{
-    img{
-      width: 40px;
-      height: 40px;
-    }
+  div{
     display: flex;
     align-items: center;
-    flex-direction: row;
-    text-decoration: none;
-    color: var(--third-color);
   }
 
-  .middle{
+  a{
     display: flex;
-    gap: 25px;
+    align-items: center;
+    text-decoration: none;
+    color: var(--third-color);
   }
 
   h3{
@@ -23,43 +18,40 @@ header{
     color: var(--third-color);
   }
 
+  position: sticky;
+  z-index: 99;
+
+  top: 0;
+  height: $header-height;
+  padding: 0 2%;
+  justify-content: space-between;
+  background-color: var(--first-color);
+  display: flex;
+
+}
+
+.header_left{
+
+}
+.header_mid{
+  gap: 25px;
+}
+.header_right{
+  .theme-switch{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
   .login{
     svg{
       width: 25px;
       height: 100%;
     }
-    border: 1px solid var(--third-color);
-    background-color: var(--second-color);
     border-radius: 7px;
     gap: 5px;
-    display: flex;
-    align-items: center;
     height: 55%;
-    padding: 0 7px;
     cursor: pointer;
   }
 
-  .right{
-    div{
-      display: flex;
-      align-items: center;
-    }
-    .theme-switch{
-      width: 24px;
-      height: 24px;
-      cursor: pointer;
-    }
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    gap: 7px;
-  }
-
-  height: 55px;
-  background-color: var(--first-color);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-  border-bottom: 1px solid var(--third-color);
+  gap: 15px;
 }

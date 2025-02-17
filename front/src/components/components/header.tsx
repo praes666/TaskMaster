@@ -5,11 +5,13 @@ import '../../styles/header.scss'
 export default function Header() {
     return(
         <header>
-            <Link to='/about'>
-                {/*<img src="https://i.pinimg.com/736x/53/51/c9/5351c955b93479fac6c20b35f44fe15b.jpg" alt=""/>*/}
-                <h2>About</h2>
-            </Link>
-            <div className='middle'>
+            <div className="header_left">
+                <Link to='/about'>
+                    {/*<img src="https://i.pinimg.com/736x/53/51/c9/5351c955b93479fac6c20b35f44fe15b.jpg" alt=""/>*/}
+                    <h2>About</h2>
+                </Link>
+            </div>
+            <div className='header_mid'>
                 <Link to='/todo'>
                     <h2>ToDo</h2>
                 </Link>
@@ -17,9 +19,9 @@ export default function Header() {
                     <h2>Kanban</h2>
                 </Link>
             </div>
-            <div className='right'>
+            <div className='header_right'>
                 <ThemeButton/>
-                <Link to='/login' className='login'>
+                <Link to='/auth' className='login'>
                     <h3>Log in</h3>
                     <IoIosLogIn/>
                 </Link>
