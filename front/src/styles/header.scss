@@ -23,11 +23,10 @@ header{
 
   top: 0;
   height: $header-height;
-  padding: 0 2%;
+  padding: 0 16px;
   justify-content: space-between;
   background-color: var(--first-color);
   display: flex;
-
 }
 
 .header_left{
@@ -51,6 +50,7 @@ header{
     gap: 5px;
     height: 55%;
     cursor: pointer;
+    text-wrap: nowrap;
   }
 
   gap: 15px;

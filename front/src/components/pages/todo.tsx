@@ -1,7 +1,5 @@
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import '../../styles/todo_page.scss'
-import {Simulate} from "react-dom/test-utils";
-import dragOver = Simulate.dragOver;
-import resize = Simulate.resize;
 
 export default function todo(){
 
@@ -14,9 +12,16 @@ export default function todo(){
     function EisTask({ task }){
         return(
             <div className='eis_task'>
-                <h3>{task?.name}</h3>
-                <p>{task?.description}</p>
-                <h4>{task?.deadline}</h4>
+                <div className='task_left'>
+                    <h3>{task?.name}</h3>
+                </div>
+                <div className='task_center'>
+                    <p>{task?.description}</p>
+                </div>
+                <div className='task_right'>
+                    <h4>{task?.deadline}</h4>
+                    <IoIosCheckmarkCircleOutline className='done_checkmark'/>
+                </div>
             </div>
         )
     }
@@ -32,8 +37,7 @@ export default function todo(){
                     </div>
                     <div className='task_title'>
                         <h3>Description</h3>
-                        {/*<input style={{height: '100px', textAlign: 'start'}}  type="text" name="" id=""/>*/}
-                        <textarea style={{resize: 'none', height: '100px', padding: '7px'}} name="" id="" ></textarea>
+                        <textarea style={{resize: 'none', height: '100px', padding: '7px'}} name="" id=""></textarea>
                     </div>
                     <div className='task_title'>
                         <h3>Deadline</h3>
@@ -71,12 +75,32 @@ export default function todo(){
             </div>
 
             <div className='eis_div'>
-                <div style={{backgroundColor: 'var(--green)'}}></div>
-                <div style={{backgroundColor: 'var(--yellow)'}}></div>
-                <div style={{backgroundColor: 'var(--orange)'}}></div>
-                <div style={{backgroundColor: 'var(--red)'}}></div>
+                <div></div>
+                <div className='eis_side_text'>
+                    <h2>Urgent</h2>
+                </div>
+                <div className='eis_side_text'>
+                    <h2>Not urgent</h2>
+                </div>
+                <div className='eis_side_text'>
+                    <h2  style={{transform: 'rotate(270deg)'}}>Important</h2>
+                </div>
+                <div style={{backgroundColor: 'var(--green)'}}>
+                    <h1>Do</h1>
+                </div>
+                <div style={{backgroundColor: 'var(--yellow)'}}>
+                    <h1>Decide</h1>
+                </div>
+                <div className='eis_side_text'>
+                    <h2  style={{transform: 'rotate(270deg)'}}>Not Important</h2>
+                </div>
+                <div style={{backgroundColor: 'var(--orange)'}}>
+                    <h1>Deligate</h1>
+                </div>
+                <div style={{backgroundColor: 'var(--red)'}}>
+                    <h1>Delete</h1>
+                </div>
             </div>
-
         </div>
     )
 }
