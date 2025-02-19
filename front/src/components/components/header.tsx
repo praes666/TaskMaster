@@ -21,7 +21,7 @@ export default function Header() {
             </div>
             <div className='header_right'>
                 <ThemeButton/>
-                <Link to='/auth' className='login'>
+                <Link to='/login' className='login'>
                     <h3>Log in</h3>
                     <IoIosLogIn/>
                 </Link>

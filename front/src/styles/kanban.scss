@@ -1,0 +1,10 @@
+@use './index.scss' as *;
+
+.kanban_page{
+  width: calc(100% - 25px*2);
+  padding: 25px;
+}
+
+.kanban_left_bar{
+
+}

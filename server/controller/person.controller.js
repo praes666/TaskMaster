@@ -1,16 +1,25 @@
 const pool = require("../db");
+const bcrypt = require('bcryptjs')
 
 class PersonController {
 	async createPerson(req, res) {
 		try {
-			const { email, login, password, first_name, last_name } = req.body;
-			const newPerson = await pool.query(
-				`INSERT INTO person (email, login, password, first_name, last_name) 
-				 VALUES ($1, $2, $3, $4, $5) RETURNING *`,
-				[email, login, password, first_name, last_name]
-			);
-			res.json(newPerson.rows[0]);
+			const { login, email, password } = req.body;
+			const personExist = await  pool.query(
+				`SELECT * FROM person WHERE login = $1 OR email = $2`,
+				[login, email]
+			)
+			if(personExist.rows.length === 0){
+				const hashedPassword = bcrypt.hashSync(password, 10)
+				await pool.query(
+					`INSERT INTO person (login, email, password) 
+					 VALUES ($1, $2, $3)`,
+					[login, email, hashedPassword]
+				);
+			res.status(200).json({message: 'Registration complete'});
+			}else res.status(400).json({message: 'User already exists'})
 		} catch (error) {
+			console.log('createPerson error: ', error);
 			res.status(500).json({ message: error.message });
 		}
 	}
