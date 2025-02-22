@@ -1,201 +1,224 @@
 @use './index.scss' as *;
 
 .todo_page{
-  width: calc(100% - 25px*2);
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  padding: 25px;
-  justify-content: space-between;
-  @media (width < 1190px) {
-    justify-content: center;
-  }
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 32px;
+	gap: 32px;
+}
+
+.container-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 32px;
+	width: 100%;
+}
+
+.container-column {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	width: 100%;
+}
+
+.eis-matrix-container {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .new_task{
-  .titles{
-    .task_title{
-      textarea, input{
-        width: calc(100% - 7px*2);
-        padding: 0 7px;
-        height: 25px;
-        border: 1px solid var(--third-color);
-        border-radius: 5px;
-        background-color: var(--first-color);
-        color: var(--third-color);
-        resize: none;
-        font-size: 17px;
-      }
-    }
+	.titles{
+		.task_title{
+			textarea, input{
+				width: 100%;
+				padding: 8px 4px;
+				border: none;
+				border-radius: 4px;
+				background-color: var(--first-color);
+				color: var(--third-color);
+				resize: none;
+				font-size: 16px;
+				box-shadow: #00000044 0px 0px 8px inset;
+			}
 
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 90%;
-    margin: 10px 0;
-  }
-
-  .switchers{
-    div{
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-    }
-    display: flex;
-    width: 100%;
-    margin-bottom: 25px;
-  }
-
-  .add_task{
-    cursor: pointer;
-    background: var(--second-color);
-    border-radius: 7px;
-    width: 80%;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  input[type='checkbox']{
-    -webkit-appearance: none;
-    background: var(--second-color);
-    border-radius: 20px;
-    width: 70px;
-    aspect-ratio: 2/1;
-    transition: background 0.3s;
-  }:checked[type='checkbox']{
-     background: var(--green);
-   }
-  input[type='checkbox']:before{
-    content: "";
-    width: 35px;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    position: absolute;
-    background: #ffffff;
-    transition: 0.3s;
-  }
-  input:checked[type='checkbox']:before{
-    margin-left: 35px;
-  }
-
-  p, h1, h2, h3{
-    color: var(--third-color);
-  }
-
-  width: 300px;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  border-radius: 7px;
-  align-items: center;
-  border: 1px solid var(--third-color);
-  margin-bottom: 25px;
-  @media (width > 1190px) {
-    position: sticky;
-    top: $header-height + 25px;
-  }
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		}
+		
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		gap: 16px;
+	}
+	
+	.switchers{
+		div{
+			width: 50%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 4px;
+		}
+		display: flex;
+		gap: 16px;
+		width: 100%;
+	}
+	
+	.add_task{
+		cursor: pointer;
+		background: var(--green);
+		color: black;
+		border-radius: 4px;
+		padding: 12px 24px;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	input[type='checkbox']{
+		appearance: none;
+		-webkit-appearance: none;
+		background: var(--red);
+		border-radius: 4px;
+		width: 96px;
+		aspect-ratio: 3/1;
+		transition: background 0.3s;
+		cursor: pointer;
+	}:checked[type='checkbox']{
+		background: var(--green);
+	}
+	input[type='checkbox']:before{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		content: "no";
+		width: 32px;
+		aspect-ratio: 1/1;
+		border-radius: 4px;
+		position: absolute;
+		background: #ffffff;
+		transition: 0.25s ease;
+		box-shadow: #00000044 0px 0 4px;
+	}
+	input:checked[type='checkbox']:before{
+		content: "yes";
+		margin-left: 64px;
+	}
+	
+	p, h1, h2, h3{
+		color: var(--third-color);
+	}
+	
+	min-width: 240px;
+	width: 100%;
+	max-width: 360px;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	padding: 16px;
+	gap: 12px;
+	border-radius: 4px;
+	align-items: center;
+	box-shadow: #00000022 0px 0 16px;
 }
 
 .todo_tasks{
-  .todo_task{
-    width: calc(100% - 10px*2 - 15px);
-    min-height: calc(160px - 10px*2);
-    background-color: var(--second-color);
-    border-radius: 10px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 800px;
-  height: fit-content;
-  gap: 10px;
-  margin-bottom: 25px;
+	.todo_task{
+		background-color: var(--second-color);
+		border-radius: 4px;
+		padding: 8px;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 16px;
 }
 
 .eis_task{
-  .task_left{
-    h3{
-      color: var(--third-color);
-    }
-  }
-
-  .task_center{
-    p{
-      text-overflow: ellipsis;
-      overflow: hidden;
-      color: var(--third-color);
-    }
-    width: 75%;
-  }
-
-  .task_right{
-    .done_checkmark{
-      width: 25px;
-      height: 25px;
-      color: var(--third-color);
-    }
-    h4{
-      color: var(--third-color);
-      width: auto;
-    }
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-  }
-
-  width: calc(100% - 15px*2);
-  height: 40px;
-  background-color: var(--first-color);
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  padding: 0 15px;
-  text-wrap: nowrap;
-  gap: 10px;
-
-  justify-content: space-between;
+	.task_left{
+		h3{
+			color: var(--third-color);
+		}
+	}
+	
+	.task_center{
+		p{
+			text-overflow: ellipsis;
+			overflow: hidden;
+			color: var(--third-color);
+		}
+		width: 75%;
+	}
+	
+	.task_right{
+		.done_checkmark{
+			width: 25px;
+			height: 25px;
+			color: var(--third-color);
+		}
+		h4{
+			color: var(--third-color);
+		}
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 4px;
+	}
+	
+	height: 40px;
+	background-color: var(--first-color);
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	padding: 0 16px;
+	text-wrap: nowrap;
+	gap: 8px;
+	
+	justify-content: space-between;
 }
 
 .eis_div{
-  .eis_side_text{
-    h2{
-      color: var(--third-color);
-    }
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-wrap: nowrap;
-  }
-  div{
-    h1{
-      color: var(--third-color);
-    }
-    width: 100%;
-    height: 100%;
-    border-radius: 7px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  width: 600px;
-  aspect-ratio: 1/1;
-  max-height: 600px;
-  position: sticky;
-  top: $header-height + 25px;
-  gap: 10px;
-  display: grid;
-  grid-template-columns: 25px repeat(2, 1fr);
-  grid-template-rows: 25px repeat(2, 1fr);
+	.eis_side_text{
+		h2{
+			color: var(--third-color);
+		}
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-wrap: nowrap;
+	}
+	div{
+		h1{
+			color: var(--third-color);
+		}
+		width: 100%;
+		height: 100%;
+		border-radius: 7px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+
+		&.eis-cell {
+			border: 4px solid;
+			font-size: 32px;
+		}
+	}
+	
+	width: 640px;
+	aspect-ratio: 1/1;
+	gap: 8px;
+	display: grid;
+	grid-template-columns: 25px repeat(2, 1fr);
+	grid-template-rows: 25px repeat(2, 1fr);
 }

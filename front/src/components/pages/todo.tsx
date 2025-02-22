@@ -34,79 +34,84 @@ export default function todo(){
 
     return(
         <div className='todo_page'>
-            <div className='new_task'>
-                <h1>New task</h1>
-                <div className='titles'>
-                    <div className='task_title'>
-                        <h3>Name</h3>
-                        <input type="text" name="" id=""/>
-                    </div>
-                    <div className='task_title'>
-                        <h3>Description</h3>
-                        <textarea style={{resize: 'none', height: '100px', padding: '7px'}} name="" id=""></textarea>
-                    </div>
-                    <div className='task_title'>
-                        <h3>Deadline</h3>
-                        <input type="date" name="" id=""/>
-                    </div>
-                </div>
-                <div className='switchers'>
-                    <div>
-                        <h3>Important?</h3>
-                        <input type="checkbox" name="" id=""/>
-                    </div>
-                    <div>
-                        <h3>Urgently?</h3>
-                        <input type="checkbox" name="" id=""/>
-                    </div>
-                </div>
-                <div className='add_task'>
-                    <h2>Add new task</h2>
-                </div>
-            </div>
+            <div className="container-row">
 
-            <div className='todo_tasks'>
-                <div className='todo_task' style={{'borderLeft': '15px solid var(--green)'}}>
-                    <EisTask task={task1}/><EisTask/><EisTask/><EisTask/>
+                <div className='new_task'>
+                    <h1>New task</h1>
+                    <div className='titles'>
+                        <div className='task_title'>
+                            <h3>Name your task</h3>
+                            <input type="text" name="" id=""/>
+                        </div>
+                    <div className='switchers'>
+                        <div>
+                            <h3>It's important?</h3>
+                            <input type="checkbox" name="" id=""/>
+                        </div>
+                        <div>
+                            <h3>It's urgent?</h3>
+                            <input type="checkbox" name="" id=""/>
+                        </div>
+                    </div>
+                        <div className='task_title'>
+                            <h3>Description</h3>
+                            <textarea style={{resize: 'none', height: '100px', padding: '7px'}} name="" id=""></textarea>
+                        </div>
+                        <div className='task_title'>
+                            <h3>Deadline</h3>
+                            <input type="date" name="" id=""/>
+                        </div>
+                    </div>
+                    <div className='add_task'>
+                        <h2>Add new task</h2>
+                    </div>
                 </div>
-                <div className='todo_task' style={{'borderLeft': '15px solid var(--yellow)'}}>
 
+                <div className="eis-matrix-container">
+                    <div className='eis_div'>
+                        <div></div>
+                        <div className='eis_side_text'>
+                            <h2>Urgent</h2>
+                        </div>
+                        <div className='eis_side_text'>
+                            <h2>Not urgent</h2>
+                        </div>
+                        <div className='eis_side_text'>
+                            <h2  style={{transform: 'rotate(270deg)'}}>Important</h2>
+                        </div>
+                        <div className="eis-cell" style={{borderColor: 'var(--green)'}}>
+                            <h1>Do</h1>
+                        </div>
+                        <div className="eis-cell" style={{borderColor: 'var(--yellow)'}}>
+                            <h1>Decide</h1>
+                        </div>
+                        <div className='eis_side_text'>
+                            <h2  style={{transform: 'rotate(270deg)'}}>Not Important</h2>
+                        </div>
+                        <div className="eis-cell" style={{borderColor: 'var(--orange)'}}>
+                            <h1>Deligate</h1>
+                        </div>
+                        <div className="eis-cell" style={{borderColor: 'var(--red)'}}>
+                            <h1>Delete</h1>
+                        </div>
+                    </div>
                 </div>
-                <div className='todo_task' style={{'borderLeft': '15px solid var(--orange)'}}>
-                    <EisTask/><EisTask/><EisTask/>
-                </div>
-                <div className='todo_task' style={{'borderLeft': '15px solid var(--red)'}}>
-                    <EisTask/><EisTask/><EisTask/><EisTask/><EisTask/><EisTask/><EisTask/><EisTask/><EisTask/><EisTask/>
-                </div>
-            </div>
+            </div>  
 
-            <div className='eis_div'>
-                <div></div>
-                <div className='eis_side_text'>
-                    <h2>Urgent</h2>
+                <div className='todo_tasks'>
+                    <div className='todo_task' style={{'borderLeft': '15px solid var(--green)'}}>
+                        <EisTask task={task1}/><EisTask/><EisTask/><EisTask/>
+                    </div>
+                    <div className='todo_task' style={{'borderLeft': '15px solid var(--yellow)'}}>
+                        <EisTask/><EisTask/>
+                    </div>
+                    <div className='todo_task' style={{'borderLeft': '15px solid var(--orange)'}}>
+                        <EisTask/><EisTask/><EisTask/>
+                    </div>
+                    <div className='todo_task' style={{'borderLeft': '15px solid var(--red)'}}>
+                        <EisTask/><EisTask/><EisTask/><EisTask/>
+                    </div>
                 </div>
-                <div className='eis_side_text'>
-                    <h2>Not urgent</h2>
-                </div>
-                <div className='eis_side_text'>
-                    <h2  style={{transform: 'rotate(270deg)'}}>Important</h2>
-                </div>
-                <div style={{backgroundColor: 'var(--green)'}}>
-                    <h1>Do</h1>
-                </div>
-                <div style={{backgroundColor: 'var(--yellow)'}}>
-                    <h1>Decide</h1>
-                </div>
-                <div className='eis_side_text'>
-                    <h2  style={{transform: 'rotate(270deg)'}}>Not Important</h2>
-                </div>
-                <div style={{backgroundColor: 'var(--orange)'}}>
-                    <h1>Deligate</h1>
-                </div>
-                <div style={{backgroundColor: 'var(--red)'}}>
-                    <h1>Delete</h1>
-                </div>
-            </div>
         </div>
     )
 }

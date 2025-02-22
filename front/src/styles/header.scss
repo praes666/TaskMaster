@@ -27,11 +27,12 @@ header{
   justify-content: space-between;
   background-color: var(--first-color);
   display: flex;
+  box-shadow: #00000044 0px 0 16px;
 }
 
-.header_left{
+// .header_left{
 
-}
+// }
 .header_mid{
   gap: 25px;
 }
@@ -53,5 +54,5 @@ header{
     text-wrap: nowrap;
   }
 
-  gap: 15px;
+  gap: 30px;
 }

@@ -7,7 +7,7 @@ export default function Header() {
         <header>
             <div className="header_left">
                 <Link to='/about'>
-                    {/*<img src="https://i.pinimg.com/736x/53/51/c9/5351c955b93479fac6c20b35f44fe15b.jpg" alt=""/>*/}
+                    {/* <img src="https://i.pinimg.com/736x/53/51/c9/5351c955b93479fac6c20b35f44fe15b.jpg" alt=""/> */}
                     <h2>About</h2>
                 </Link>
             </div>
@@ -20,11 +20,11 @@ export default function Header() {
                 </Link>
             </div>
             <div className='header_right'>
-                <ThemeButton/>
                 <Link to='/login' className='login'>
                     <h3>Log in</h3>
                     <IoIosLogIn/>
                 </Link>
+                <ThemeButton/>
             </div>
         </header>
     )
