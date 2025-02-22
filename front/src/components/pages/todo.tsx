@@ -9,7 +9,13 @@ export default function todo(){
         deadline: '22.10.2027'
     }
 
-    function EisTask({ task }){
+    interface Task {
+        name: string,
+        description: string,
+        deadline: string
+    }
+
+    function EisTask({ task }: {task: Task} | any){
         return(
             <div className='eis_task'>
                 <div className='task_left'>
