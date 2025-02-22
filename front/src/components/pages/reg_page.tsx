@@ -7,15 +7,22 @@ import {useRef, useState} from "react";
 import api_path from '../../api_path.json'
 
 export default function RegisterPage() {
-    const [regData, setRegData] = useState<object>({login: "", email: "", password: ""});
-    const password1 = useRef();
-    const password2 = useRef();
-    const handleRegChange = (e) => {
+
+    interface RegData {
+        login: string,
+        email: string,
+        password: string
+    }
+
+    const [regData, setRegData] = useState<RegData>({login: "", email: "", password: ""});
+    const password1 = useRef<HTMLInputElement | null>(null);
+    const password2 = useRef<HTMLInputElement | null>(null);
+    const handleRegChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setRegData({...regData, [e.target.name]: e.target.value});
     }
 
     const comparePassword = () => {
-        if(password1.current.value === password2.current.value) {
+        if(password1.current?.value === password2.current?.value) {
             return true
         }
         alert('Passwords do not match')
@@ -32,7 +39,7 @@ export default function RegisterPage() {
                     location.href="/login"
                 }
             }
-        }catch(err){
+        }catch(err: any){
             if(err.response.status === 400){
                 alert(err.response.data.message)
             }
