@@ -54,11 +54,11 @@ export default function todo(){
                         </div>
                     </div>
                         <div className='task_title'>
-                            <h3>Description</h3>
-                            <textarea style={{resize: 'none', height: '100px', padding: '7px'}} name="" id=""></textarea>
+                            <h3>Describe it</h3>
+                            <textarea style={{resize: 'none', minHeight: '120px'}} name="" id=""></textarea>
                         </div>
                         <div className='task_title'>
-                            <h3>Deadline</h3>
+                            <h3>Set a deadline</h3>
                             <input type="date" name="" id=""/>
                         </div>
                     </div>

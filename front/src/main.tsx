@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Outlet, Navigate } from 'react-router-dom'
 
 import Page404 from "./components/pages/page404.tsx";
 import Auth from './components/pages/auth.tsx'
@@ -12,6 +12,11 @@ import Todo from "./components/pages/todo.tsx";
 import Kanban from "./components/pages/kanban.tsx";
 
 import './styles/index.scss'
+
+export function isAuthenticated() {
+    return !!localStorage.getItem('token');
+}
+
 
 const Layout = () => {
     return (
@@ -28,7 +33,7 @@ createRoot(document.getElementById('root')!).render(
             <Routes>
                 <Route element={<Layout/>}>
                     <Route path='/about' element={<About/>}/>
-                    <Route path='/todo' element={<Todo/>}/>
+                    <Route path="/todo" element={isAuthenticated() ? <Todo /> : <Navigate to="/login" />} />
                     <Route path='/kanban' element={<Kanban/>}/>
                 </Route>
                 <Route path='/login' element={<Auth/>}/>
