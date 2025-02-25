@@ -78,9 +78,9 @@ export default function RegisterPage() {
                     <input type='password' value={password2} onChange={handlePassword2Change} />
                 </div>
                 <div className='regButton' onClick={handleRegister}>
-                    <p>Sign in</p>
+                    <p>Sign up!</p>
                 </div>
-                <Link to='/login'>Have an account? Log in now</Link>
+                <Link to='/login'>Have an account? Sign in</Link>
             </div>
             <ThemeButton />
         </div>

@@ -54,9 +54,9 @@ export default function LoginPage() {
                     <input type='password' name='password' onChange={handleLoginChange} />
                 </div>
                 <div className='regButton' onClick={handleLogin}>
-                    <p>Login</p>
+                    <p>Sign in!</p>
                 </div>
-                <Link to='/reg'>Don't have an account? Sign up now</Link>
+                <Link to='/reg'>Don't have an account? Sign up</Link>
             </div>
             <ThemeButton />
         </div>
