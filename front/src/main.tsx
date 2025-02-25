@@ -11,6 +11,8 @@ import About from "./components/pages/about.tsx";
 import Todo from "./components/pages/todo.tsx";
 import Kanban from "./components/pages/kanban.tsx";
 
+import { AlertProvider } from "./components/context/AlertContext";
+
 import './styles/index.scss'
 
 export function isAuthenticated() {
@@ -28,18 +30,20 @@ const Layout = () => {
 }
 
 createRoot(document.getElementById('root')!).render(
-    <Router>
-        <StrictMode>
-            <Routes>
-                <Route element={<Layout/>}>
-                    <Route path='/about' element={<About/>}/>
-                    <Route path="/todo" element={isAuthenticated() ? <Todo /> : <Navigate to="/login" />} />
-                    <Route path='/kanban' element={<Kanban/>}/>
-                </Route>
-                <Route path='/login' element={<Auth/>}/>
-                <Route path='/reg' element={<RegisterPage/>}/>
-                <Route path='*' element={<Page404/>}/>
-            </Routes>
-        </StrictMode>
-    </Router>
+    <AlertProvider>
+        <Router>
+            <StrictMode>
+                <Routes>
+                    <Route element={<Layout/>}>
+                        <Route path='/about' element={<About/>}/>
+                        <Route path="/todo" element={isAuthenticated() ? <Todo /> : <Navigate to="/login" />} />
+                        <Route path='/kanban' element={<Kanban/>}/>
+                    </Route>
+                    <Route path='/login' element={<Auth/>}/>
+                    <Route path='/reg' element={<RegisterPage/>}/>
+                    <Route path='*' element={<Page404/>}/>
+                </Routes>
+            </StrictMode>
+        </Router>
+    </AlertProvider>
 )

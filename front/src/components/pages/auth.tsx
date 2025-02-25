@@ -30,7 +30,7 @@ export default function LoginPage() {
             if (response.status === 200) {
                 alert('Login successful!');
                 localStorage.setItem('token', response.data.token);
-                window.location.href = '/todo'; // Перенаправляем пользователя
+                window.location.href = '/todo';
             }
         } catch (err: any) {
             if (err.response && err.response.status === 400) {

@@ -3,10 +3,13 @@ import ThemeButton from '../components/theme_button.tsx';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useAlert } from "../context/AlertContext";
 
 import api_path from '../../api_path.json';
 
 export default function RegisterPage() {
+    const { showAlert } = useAlert();
+
     interface RegData {
         login: string;
         email: string;
@@ -26,12 +29,13 @@ export default function RegisterPage() {
 
     const handleRegister = async () => {
         if (!regData.login || !regData.email || !regData.password || !password2) {
-            alert('All fields are required');
+            showAlert('All fields are required', "error");
+
             return;
         }
 
         if (regData.password !== password2) {
-            alert('Passwords do not match');
+            showAlert('Passwords not matching', "error");
             return;
         }
 
@@ -39,15 +43,16 @@ export default function RegisterPage() {
             const response = await axios.post(api_path.api_path + 'api/registration', regData);
 
             if (response.status === 200) {
-                alert(response.data.message);
+            showAlert(response.data.message, "success");
+
                 localStorage.setItem('token', response.data.token);
                 window.location.href = '/login';
             }
         } catch (err: any) {
             if (err.response && err.response.status === 400) {
-                alert(err.response.data.message);
+                showAlert(err.response.data.message, "error");
             } else {
-                alert('Registration failed. Please try again.');
+                showAlert('Registration failed. Please try again.', "error");
             }
         }
     };
